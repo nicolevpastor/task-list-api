@@ -87,8 +87,6 @@ def delete_task(task_id):
 def mark_complete(task_id):
     task = validate_model(Task, task_id)
 
-    # If completed_at = None → assigns the current datetime.
-    # If completed_at already has a datetime → replaces it with the current datetime.
     task.completed_at = datetime.now(timezone.utc)
 
     db.session.commit()
